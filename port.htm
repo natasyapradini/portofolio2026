@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Natasya Pradini Putri | Data & Analytics Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --surface: #fffefa;
+      --surface-2: #f0eee7;
+      --text: #1e2722;
+      --muted: #68716b;
+      --accent: #285744;
+      --accent-dark: #1d4434;
+      --border: #deddd5;
+      --white: #ffffff;
+
+      --serif: "DM Serif Display", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+
+      --max-width: 1180px;
+      --radius: 18px;
+      --shadow: 0 12px 35px rgba(30, 39, 34, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 245, 239, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(222, 221, 213, 0.8);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: auto;
+      height: 76px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .language-toggle {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    main {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 0 28px 80px;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section {
+      padding: 90px 0 30px;
+    }
+
+    .section-heading {
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--text);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.8px;
+    }
+
+    h3 {
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .body-text {
+      max-width: 680px;
+      font-size: 16px;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 45px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface);
+    }
+
+    /* =========================
+       HOME
+    ========================= */
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 80px;
+      align-items: center;
+      padding: 75px 0 90px;
+    }
+
+    .hero-description {
+      max-width: 610px;
+      margin-top: 28px;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .hero-role {
+      margin-top: 20px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-photo {
+      min-height: 470px;
+      border-radius: 24px;
+      background: var(--surface-2);
+      border: 1px dashed #c9c7bd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 30px;
+    }
+
+    .hero-photo span {
+      font-size: 12px;
+      max-width: 200px;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-top: 55px;
+    }
+
+    .stat {
+      padding: 22px 18px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+    }
+
+    .stat-label {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .education-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .education-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .education-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .gpa {
+      display: inline-flex;
+      margin-top: 22px;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .gpa-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .gpa-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mini-link {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--surface);
+    }
+
+    .skills-section {
+      margin-top: 70px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    .experience-tab {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 22px;
+      border-radius: var(--radius);
+      text-align: left;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .experience-tab:hover,
+    .experience-tab.active {
+      border-color: var(--accent);
+      background: #f2f5ef;
+    }
+
+    .experience-tab strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .experience-tab span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .experience-content {
+      display: none;
+    }
+
+    .experience-content.active {
+      display: block;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 40px;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .timeline-company {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      margin: 4px 0 15px;
+    }
+
+    .timeline-description {
+      max-width: 750px;
+    }
+
+    .evidence-box {
+      margin-top: 25px;
+      min-height: 190px;
+      border: 1px dashed #c9c7bd;
+      border-radius: 14px;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 20px;
+    }
+
+    .organization-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .organization-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
+    }
+
+    .organization-card .role {
+      margin-top: 7px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .organization-card p {
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-image {
+      height: 220px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .project-body {
+      padding: 25px;
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .project-tags {
+      margin-top: 18px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       RESEARCH
+    ========================= */
+
+    .featured-research {
+      background: var(--accent);
+      color: white;
+      border-radius: 24px;
+      padding: 45px;
+      margin-bottom: 45px;
+    }
+
+    .featured-research .eyebrow {
+      color: #dce9df;
+    }
+
+    .featured-research h3 {
+      color: white;
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 400;
+      max-width: 780px;
+    }
+
+    .featured-research p {
+      color: #dbe4de;
+      margin-top: 15px;
+      max-width: 760px;
+    }
+
+    .research-results {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .result-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .result-label {
+      font-size: 11px;
+      color: #dbe4de;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .publication-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .publication-year {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
+
+    .publication-card p {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .publication-link {
+      display: inline-block;
+      margin-top: 17px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       CERTIFICATIONS
+    ========================= */
+
+    .certification-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .certification-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      min-height: 190px;
+    }
+
+    .certification-issuer {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 10px;
+    }
+
+    .certification-card p {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .certification-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .certification-date {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 45px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--accent);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 25px 28px 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-photo {
+        min-height: 350px;
+      }
+
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .organization-grid,
+      .certification-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      main {
+        padding: 0 18px 60px;
+      }
+
+      .nav-inner {
+        padding: 0 18px;
+      }
+
+      h2 {
+        font-size: 38px;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .skills-grid,
+      .project-grid,
+      .organization-grid,
+      .certification-grid,
+      .experience-selector {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .featured-research,
+      .contact-box {
+        padding: 28px;
+      }
+
+      footer {
+        padding-left: 18px;
+        padding-right: 18px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav class="navbar">
+    <div class="nav-inner">
+
+      <a href="#" class="logo" onclick="showPage('home'); return false;">
+        Portfolio.
+      </a>
+
+      <div class="nav-links">
+        <a href="#" data-page="home" onclick="showPage('home'); return false;">Home</a>
+        <a href="#" data-page="about" onclick="showPage('about'); return false;">About</a>
+        <a href="#" data-page="experience" onclick="showPage('experience'); return false;">Experience</a>
+        <a href="#" data-page="projects" onclick="showPage('projects'); return false;">Projects</a>
+        <a href="#" data-page="research" onclick="showPage('research'); return false;">Research</a>
+        <a href="#" data-page="certifications" onclick="showPage('certifications'); return false;">Certifications</a>
+        <a href="#" data-page="contact" onclick="showPage('contact'); return false;">Contact</a>
+      </div>
+
+      <button class="language-toggle" onclick="toggleLanguage()">
+        EN / ID
+      </button>
+
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- =========================
+         HOME
+    ========================= -->
+
+    <section id="home" class="page active">
+
+      <div class="hero">
+
+        <div>
+          <div class="eyebrow">
+            Mathematics Graduate · Data & Analytics
+          </div>
+
+          <h1>
+            Natasya<br>
+            Pradini Putri
+          </h1>
+
+          <div class="hero-role">
+            Data Analytics · Business Analytics · Finance & Operations
+          </div>
+
+          <p class="hero-description">
+            Mathematics graduate from Universitas Padjadjaran with an interest
+            in data analytics, business analytics, finance, and operations.
+            Experienced in quantitative research, financial analysis,
+            organizational finance, and teaching.
+          </p>
+
+          <div class="btn-row">
+            <a href="#" class="btn btn-primary"
+               onclick="showPage('projects'); return false;">
+              View Projects
+            </a>
+
+            <a href="#" class="btn btn-secondary"
+               onclick="showPage('experience'); return false;">
+              View Experience
+            </a>
+          </div>
+
+          <div class="quick-stats">
+
+            <div class="stat">
+              <div class="stat-number">3.39</div>
+              <div class="stat-label">GPA / 4.00</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Published Papers</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">1</div>
+              <div class="stat-label">Undergraduate Thesis</div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- FOTO -->
+        <div class="hero-photo">
+          <span>
+            Professional photo<br>
+            <br>
+            Replace this area with your photo.
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about" class="page">
+
+      <div class="section">
+
+        <div class="section-heading">
+          <div class="eyebrow">About</div>
+          <h2>Background & Skills</h2>
+        </div>
+
+
+        <div class="about-grid">
+
+          <div>
+            <p class="body-text">
+              I am a Mathematics graduate from Universitas Padjadjaran
+              with a strong interest in applying quantitative thinking
+              to data, business, finance, and operational problems.
+            </p>
+
+            <br>
+
+            <p class="body-text">
+              My academic and professional experiences have involved
+              statistical analysis, financial modelling, data processing,
+              research, organizational finance, and teaching.
+            </p>
+          </div>
+
+
+          <div class="education-card">
+
+            <div class="eyebrow">Education</div>
+
+            <h3>
+              Bachelor of Mathematics
+            </h3>
+
+            <div class="education-meta">
+              Universitas Padjadjaran · 2026
+            </div>
+
+            <div class="gpa">
+
+              <div class="gpa-number">
+                3.39
+              </div>
+
+              <div class="gpa-links">
+
+                <!-- GANTI LINK INI -->
+                <a href="YOUR_SKL_LINK_HERE"
+                   target="_blank"
+                   class="mini-link">
+                  View SKL
+                </a>
+
+                <!-- GANTI LINK INI -->
+                <a href="YOUR_TRANSCRIPT_LINK_HERE"
+                   target="_blank"
+                   class="mini-link">
+                  View Transcript
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TECHNICAL SKILLS -->
+
+        <div class="skills-section">
+
+          <div class="section-heading">
+            <div class="eyebrow">Technical Skills</div>
+            <h2>Tools I use</h2>
+          </div>
+
+          <div class="skills-grid">
+
+            <div class="skill-card">
+              <h3>Programming & Data</h3>
+
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">R</span>
+                <span class="tag">SQL</span>
+                <span class="tag">KNIME</span>
+                <span class="tag">RStudio</span>
+                <span class="tag">Jupyter</span>
+              </div>
+            </div>
+
+
+            <div class="skill-card">
+              <h3>Analytics & Visualization</h3>
+
+              <div class="tags">
+                <span class="tag">Microsoft Excel</span>
+                <span class="tag">Looker Studio</span>
+                <span class="tag">Google Workspace</span>
+                <span class="tag">Data Visualization</span>
+              </div>
+            </div>
+
+
+            <div class="skill-card">
+              <h3>Data & Research Tools</h3>
+
+              <div class="tags">
+                <span class="tag">Google Earth Engine</span>
+                <span class="tag">Landsat</span>
+                <span class="tag">NASA POWER</span>
+                <span class="tag">BMKG</span>
+                <span class="tag">Google Trends</span>
+                <span class="tag">USGS Earth Explorer</span>
+              </div>
+            </div>
+
+
+            <div class="skill-card">
+              <h3>Analytical Methods</h3>
+
+              <div class="tags">
+                <span class="tag">OLS</span>
+                <span class="tag">ANOVA</span>
+                <span class="tag">VIF</span>
+                <span class="tag">Kolmogorov–Smirnov</span>
+                <span class="tag">ARIMA</span>
+                <span class="tag">GARCH</span>
+                <span class="tag">VAR</span>
+                <span class="tag">Random Forest</span>
+                <span class="tag">Grid Search</span>
+                <span class="tag">Cross Validation</span>
+              </div>
+            </div>
+
+
+            <div class="skill-card">
+              <h3>Soft Skills</h3>
+
+              <div class="tags">
+                <span class="tag">Analytical Thinking</span>
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Structured Thinking</span>
+                <span class="tag">Communication</span>
+                <span class="tag">Teamwork</span>
+                <span class="tag">Leadership</span>
+                <span class="tag">Time Management</span>
+                <span class="tag">Learning Agility</span>
+              </div>
+            </div>
+
+
+            <div class="skill-card">
+              <h3>Languages</h3>
+
+              <div class="tags">
+                <span class="tag">Bahasa Indonesia — Fluent</span>
+                <span class="tag">English — Intermediate</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
+    <section id="experience" class="page">
+
+      <div class="section">
+
+        <div class="section-heading">
+          <div class="eyebrow">Experience</div>
+          <h2>What I've worked on</h2>
+        </div>
+
+
+        <!-- SELECTOR -->
+
+        <div class="experience-selector">
+
+          <button class="experience-tab active"
+                  onclick="showExperience('work', this)">
+            <strong>Work Experience</strong>
+            <span>Professional work</span>
+          </button>
+
+          <button class="experience-tab"
+                  onclick="showExperience('internship', this)">
+            <strong>Internship</strong>
+            <span>Professional internship</span>
+          </button>
+
+          <button class="experience-tab"
+                  onclick="showExperience('organization', this)">
+            <strong>Organization</strong>
+            <span>Leadership & campus activities</span>
+          </button>
+
+        </div>
+
+
+        <!-- WORK -->
+
+        <div id="work" class="experience-content active">
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2026 — Present
+            </div>
+
+            <div>
+
+              <h3>Mathematics Tutor</h3>
+
+              <div class="timeline-company">
+                Algonova
+              </div>
+
+              <p class="timeline-description">
+                Deliver mathematics lessons for students across different
+                grade levels. Adapt learning materials to students'
+                understanding, monitor progress, and provide structured
+                feedback to parents.
+              </p>
+
+              <div class="evidence-box">
+                Work evidence / documentation
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              Mar — Apr 2025
+            </div>
+
+            <div>
+
+              <h3>Cat Sitter</h3>
+
+              <div class="timeline-company">
+                Katzbuddy Indonesia
+              </div>
+
+              <p class="timeline-description">
+                Provided scheduled pet-care services and handled the
+                daily needs of more than 10 cats while maintaining
+                reliable communication with clients.
+              </p>
+
+              <div class="evidence-box">
+                Work evidence / documentation
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- INTERNSHIP -->
+
+        <div id="internship" class="experience-content">
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              Jul — Aug 2025
+            </div>
+
+            <div>
+
+              <h3>Intern</h3>
+
+              <div class="timeline-company">
+                PT Bank Tabungan Negara (Persero) Tbk
+              </div>
+
+              <p class="timeline-description">
+                Supported banking-related activities during the internship,
+                gaining exposure to professional workflows, data handling,
+                documentation, and operational processes.
+              </p>
+
+              <div class="evidence-box">
+                Internship evidence / documentation
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ORGANIZATION -->
+
+        <div id="organization" class="experience-content">
+
+          <div class="organization-grid">
+
+            <div class="organization-card">
+
+              <div class="eyebrow">Leadership</div>
+
+              <h3>
+                BEM KEMA FMIPA Unpad
+              </h3>
+
+              <div class="role">
+                Head of Finance Bureau
+              </div>
+
+              <p>
+                Managed organizational finance, budgeting, financial
+                reporting, and coordination across programs and teams.
+              </p>
+
+              <div class="evidence-box">
+                Organization evidence
+              </div>
+
+            </div>
+
+
+            <div class="organization-card">
+
+              <div class="eyebrow">Organization</div>
+
+              <h3>
+                JSVP 2024
+              </h3>
+
+              <div class="role">
+                Organizational Experience
+              </div>
+
+              <p>
+                Participated in organizational activities and contributed
+                to collaborative team-based programs.
+              </p>
+
+              <div class="evidence-box">
+                Organization evidence
+              </div>
+
+            </div>
+
+
+            <div class="organization-card">
+
+              <div class="eyebrow">Media</div>
+
+              <h3>
+                Radiomu UNPAD
+              </h3>
+
+              <div class="role">
+                Organizational Experience
+              </div>
+
+              <p>
+                Contributed to activities within a student media
+                organization and worked collaboratively with the team.
+              </p>
+
+              <div class="evidence-box">
+                Organization evidence
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects" class="page">
+
+      <div class="section">
+
+        <div class="section-heading">
+          <div class="eyebrow">Projects</div>
+          <h2>Selected work</h2>
+        </div>
+
+
+        <div class="project-grid">
+
+          <!-- PROJECT 1 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              Thesis visualization / workflow
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Data Analysis · Thesis
+              </div>
+
+              <h3>
+                Random Forest LST Prediction
+              </h3>
+
+              <p>
+                Predicting Land Surface Temperature in Surabaya using
+                Random Forest with spatial, environmental, demographic,
+                and climatic variables.
+              </p>
+
+              <div class="tags project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">KNIME</span>
+                <span class="tag">Google Earth Engine</span>
+                <span class="tag">Random Forest</span>
+                <span class="tag">5-Fold CV</span>
+              </div>
+
+              <a href="#" class="project-link">
+                View Research →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 2 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              Financial analysis visualization
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Quantitative Finance
+              </div>
+
+              <h3>
+                Financial Modelling & Risk Analysis
+              </h3>
+
+              <p>
+                Quantitative research involving stock price data,
+                financial modelling, option pricing, forecasting,
+                and risk measurement.
+              </p>
+
+              <div class="tags project-tags">
+                <span class="tag">R</span>
+                <span class="tag">Python</span>
+                <span class="tag">Black-Scholes</span>
+                <span class="tag">GBM</span>
+                <span class="tag">VaR</span>
+              </div>
+
+              <a href="#" class="project-link">
+                View Research →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 3 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              Data analysis visualization
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Data Analytics
+              </div>
+
+              <h3>
+                Statistical Data Analysis
+              </h3>
+
+              <p>
+                Applied statistical methods to investigate patterns,
+                relationships, assumptions, and model performance
+                across quantitative datasets.
+              </p>
+
+              <div class="tags project-tags">
+                <span class="tag">R</span>
+                <span class="tag">Python</span>
+                <span class="tag">OLS</span>
+                <span class="tag">ANOVA</span>
+                <span class="tag">VIF</span>
+              </div>
+
+              <a href="#" class="project-link">
+                View Project →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 4 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              Dashboard / visualization
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Visualization
+              </div>
+
+              <h3>
+                Dashboard & Data Visualization
+              </h3>
+
+              <p>
+                Data presentation and visualization using spreadsheet
+                and dashboard tools to communicate information clearly
+                and support interpretation.
+              </p>
+
+              <div class="tags project-tags">
+                <span class="tag">Excel</span>
+                <span class="tag">Looker Studio</span>
+                <span class="tag">Data Visualization</span>
+              </div>
+
+              <a href="#" class="project-link">
+                View Project →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESEARCH
+    ========================= -->
+
+    <section id="research" class="page">
+
+      <div class="section">
+
+        <div class="section-heading">
+          <div class="eyebrow">Research</div>
+          <h2>Research & Publications</h2>
+        </div>
+
+
+        <!-- THESIS -->
+
+        <div class="featured-research">
+
+          <div class="eyebrow">
+            Undergraduate Thesis · Not Yet Published
+          </div>
+
+          <h3>
+            Model Regresi Random Forest untuk Prediksi
+            Land Surface Temperature di Kota Surabaya
+            dengan Interpretasi Feature Importance
+          </h3>
+
+          <p>
+            A Random Forest-based study for predicting Land Surface
+            Temperature in Surabaya using environmental, spatial,
+            demographic, and climatic variables.
+          </p>
+
+          <div class="research-results">
+
+            <div>
+              <div class="result-number">0.872</div>
+              <div class="result-label">R²</div>
+            </div>
+
+            <div>
+              <div class="result-number">4.3%</div>
+              <div class="result-label">MAPE</div>
+            </div>
+
+            <div>
+              <div class="result-number">600 m</div>
+              <div class="result-label">Grid size</div>
+            </div>
+
+          </div>
+
+          <div class="btn-row">
+            <a href="#" class="btn btn-secondary"
+               style="border-color:#dbe4de;color:white;">
+              View Research
+            </a>
+
+            <a href="#" class="btn btn-secondary"
+               style="border-color:#dbe4de;color:white;">
+              View Code
+            </a>
+          </div>
+
+        </div>
+
+
+        <!-- PUBLICATIONS -->
+
+        <div class="publication-list">
+
+
+          <article class="publication-card">
+
+            <div class="publication-year">
+              AUGUST 2024 · IJGOR
+            </div>
+
+            <h3>
+              Analysis of Put and Call Option Pricing on BCA Stock
+              Using the Black-Scholes Model
+            </h3>
+
+            <p>
+              Research on put and call option pricing for BCA stock
+              using the Black-Scholes model with a financial and
+              risk-management perspective.
+            </p>
+
+            <a
+              href="https://www.researchgate.net/publication/383562251_Analysis_of_Put_and_Call_Option_Pricing_on_BCA_Stock_Using_the_Black-Scholes_Model_Financial_and_Risk_Management_Perspective"
+              target="_blank"
+              class="publication-link">
+              Read Paper →
+            </a>
+
+          </article>
+
+
+          <article class="publication-card">
+
+            <div class="publication-year">
+              NOVEMBER 2025 · IJGOR
+            </div>
+
+            <h3>
+              Application of the Geometric Brownian Motion Model
+              and Value at Risk Calculation on the Stock of
+              PT Bank Tabungan Negara (Persero) Tbk
+            </h3>
+
+            <p>
+              Research applying Geometric Brownian Motion to model
+              stock-price movements and Value at Risk using
+              Monte Carlo simulation.
+            </p>
+
+            <a
+              href="https://iorajournal.org/index.php/ijgor/article/view/407/357"
+              target="_blank"
+              class="publication-link">
+              Read Paper →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================= -->
+
+    <section id="certifications" class="page">
+
+      <div class="section">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            Certifications
+          </div>
+
+          <h2>
+            Courses & Credentials
+          </h2>
+
+          <p class="body-text" style="margin-top:15px;">
+            Selected certifications and learning credentials relevant
+            to data, analytics, business, and professional development.
+          </p>
+
+        </div>
+
+
+        <div class="certification-grid">
+
+
+          <!--
+            MASUKKAN SERTIFIKASI YANG SUDAH LO KASIH DI SINI.
+            Struktur kartunya sudah siap.
+          -->
+
+
+          <article class="certification-card">
+
+            <div class="certification-issuer">
+              Certification Issuer
+            </div>
+
+            <h3>
+              Certification Name
+            </h3>
+
+            <p>
+              Short description of the certification or course.
+            </p>
+
+            <div class="certification-footer">
+
+              <span class="certification-date">
+                2026
+              </span>
+
+              <a href="#"
+                 target="_blank"
+                 class="publication-link">
+                View Credential →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="certification-card">
+
+            <div class="certification-issuer">
+              Certification Issuer
+            </div>
+
+            <h3>
+              Certification Name
+            </h3>
+
+            <p>
+              Short description of the certification or course.
+            </p>
+
+            <div class="certification-footer">
+
+              <span class="certification-date">
+                2026
+              </span>
+
+              <a href="#"
+                 target="_blank"
+                 class="publication-link">
+                View Credential →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="certification-card">
+
+            <div class="certification-issuer">
+              Certification Issuer
+            </div>
+
+            <h3>
+              Certification Name
+            </h3>
+
+            <p>
+              Short description of the certification or course.
+            </p>
+
+            <div class="certification-footer">
+
+              <span class="certification-date">
+                2026
+              </span>
+
+              <a href="#"
+                 target="_blank"
+                 class="publication-link">
+                View Credential →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="certification-card">
+
+            <div class="certification-issuer">
+              Certification Issuer
+            </div>
+
+            <h3>
+              Certification Name
+            </h3>
+
+            <p>
+              Short description of the certification or course.
+            </p>
+
+            <div class="certification-footer">
+
+              <span class="certification-date">
+                2026
+              </span>
+
+              <a href="#"
+                 target="_blank"
+                 class="publication-link">
+                View Credential →
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact" class="page">
+
+      <div class="section">
+
+        <div class="section-heading">
+          <div class="eyebrow">Contact</div>
+          <h2>Let's connect.</h2>
+        </div>
+
+
+        <div class="contact-box">
+
+          <div>
+
+            <p class="body-text">
+              Interested in data analytics, business analytics,
+              finance, and quantitative problem solving.
+            </p>
+
+            <div class="btn-row">
+
+              <a
+                href="mailto:thsyanatasya@gmail.com"
+                class="btn btn-primary">
+                Email Me
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/natasyapradiniputri/"
+                target="_blank"
+                class="btn btn-secondary">
+                LinkedIn
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-links">
+
+            <a
+              href="mailto:thsyanatasya@gmail.com"
+              class="contact-link">
+              <span>Email</span>
+              <span>↗</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/natasyapradiniputri/"
+              target="_blank"
+              class="contact-link">
+              <span>LinkedIn</span>
+              <span>↗</span>
+            </a>
+
+            <a
+              href="https://wa.me/6285107199996"
+              target="_blank"
+              class="contact-link">
+              <span>WhatsApp</span>
+              <span>↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <span>
+      © 2026 Natasya Pradini Putri
+    </span>
+
+    <span>
+      Mathematics · Data · Finance
+    </span>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       PAGE NAVIGATION
+    ========================= */
+
+    function showPage(pageId) {
+
+      document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+      });
+
+      const target = document.getElementById(pageId);
+
+      if (target) {
+        target.classList.add("active");
+      }
+
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.classList.remove("active");
+
+        if (link.dataset.page === pageId) {
+          link.classList.add("active");
+        }
+      });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+
+    /* =========================
+       EXPERIENCE TABS
+    ========================= */
+
+    function showExperience(type, button) {
+
+      document.querySelectorAll(".experience-content").forEach(content => {
+        content.classList.remove("active");
+      });
+
+      document.querySelectorAll(".experience-tab").forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+      const target = document.getElementById(type);
+
+      if (target) {
+        target.classList.add("active");
+      }
+
+      button.classList.add("active");
+    }
+
+
+    /* =========================
+       LANGUAGE
+       ========================= */
+
+    let currentLanguage = "en";
+
+    /*
+      Semua teks halaman diterjemahkan lewat dictionary ini.
+      Sistem bekerja pada text node sehingga struktur/layout HTML
+      tidak berubah. Spasi dan line break asli juga dipertahankan.
+    */
+    const translations = {
+      "Mathematics Graduate · Data & Analytics": "Lulusan Matematika · Data & Analitik",
+      "Data Analytics · Business Analytics · Finance & Operations": "Analitik Data · Analitik Bisnis · Keuangan & Operasional",
+      "Mathematics graduate from Universitas Padjadjaran with an interest in data analytics, business analytics, finance, and operations. Experienced in quantitative research, financial analysis, organizational finance, and teaching.": "Lulusan Matematika dari Universitas Padjadjaran dengan minat pada analitik data, analitik bisnis, keuangan, dan operasional. Berpengalaman dalam riset kuantitatif, analisis keuangan, keuangan organisasi, dan pengajaran.",
+      "View Projects": "Lihat Proyek",
+      "View Experience": "Lihat Pengalaman",
+      "GPA / 4.00": "IPK / 4,00",
+      "Published Papers": "Publikasi Ilmiah",
+      "Undergraduate Thesis": "Skripsi",
+      "Professional photo": "Foto profesional",
+      "Replace this area with your photo.": "Ganti area ini dengan foto Anda.",
+      "Home": "Beranda",
+      "About": "Tentang",
+      "Background & Skills": "Latar Belakang & Keahlian",
+      "I am a Mathematics graduate from Universitas Padjadjaran with a strong interest in applying quantitative thinking to data, business, finance, and operational problems.": "Saya adalah lulusan Matematika dari Universitas Padjadjaran dengan minat kuat dalam menerapkan pemikiran kuantitatif pada permasalahan data, bisnis, keuangan, dan operasional.",
+      "My academic and professional experiences have involved statistical analysis, financial modelling, data processing, research, organizational finance, and teaching.": "Pengalaman akademik dan profesional saya mencakup analisis statistik, pemodelan keuangan, pengolahan data, riset, keuangan organisasi, dan pengajaran.",
+      "Education": "Pendidikan",
+      "Bachelor of Mathematics": "Sarjana Matematika",
+      "View SKL": "Lihat SKL",
+      "View Transcript": "Lihat Transkrip",
+      "Technical Skills": "Keahlian Teknis",
+      "Tools I use": "Tools yang Saya Gunakan",
+      "Programming & Data": "Pemrograman & Data",
+      "Analytics & Visualization": "Analitik & Visualisasi",
+      "Data & Research Tools": "Tools Data & Riset",
+      "Analytical Methods": "Metode Analisis",
+      "Soft Skills": "Keterampilan Interpersonal",
+      "Analytical Thinking": "Berpikir Analitis",
+      "Problem Solving": "Pemecahan Masalah",
+      "Structured Thinking": "Berpikir Terstruktur",
+      "Communication": "Komunikasi",
+      "Teamwork": "Kerja Tim",
+      "Leadership": "Kepemimpinan",
+      "Time Management": "Manajemen Waktu",
+      "Learning Agility": "Kemampuan Beradaptasi",
+      "Languages": "Bahasa",
+      "Bahasa Indonesia — Fluent": "Bahasa Indonesia — Fasih",
+      "English — Intermediate": "Bahasa Inggris — Menengah",
+      "Experience": "Pengalaman",
+      "What I've worked on": "Pengalaman yang Saya Jalani",
+      "Work Experience": "Pengalaman Kerja",
+      "Professional work": "Pekerjaan Profesional",
+      "Internship": "Magang",
+      "Professional internship": "Pengalaman Magang Profesional",
+      "Organization": "Organisasi",
+      "Leadership & campus activities": "Kepemimpinan & Kegiatan Kampus",
+      "Mathematics Tutor": "Tutor Matematika",
+      "Deliver mathematics lessons for students across different grade levels. Adapt learning materials to students' understanding, monitor progress, and provide structured feedback to parents.": "Memberikan pembelajaran matematika untuk siswa dari berbagai jenjang. Menyesuaikan materi dengan pemahaman siswa, memantau perkembangan, dan memberikan umpan balik yang terstruktur kepada orang tua.",
+      "Work evidence / documentation": "Bukti / dokumentasi pekerjaan",
+      "Cat Sitter": "Penjaga Kucing",
+      "Provided scheduled pet-care services and handled the daily needs of more than 10 cats while maintaining reliable communication with clients.": "Memberikan layanan perawatan hewan sesuai jadwal dan menangani kebutuhan harian lebih dari 10 kucing dengan tetap menjaga komunikasi yang baik dengan klien.",
+      "Intern": "Peserta Magang",
+      "Supported banking-related activities during the internship, gaining exposure to professional workflows, data handling, documentation, and operational processes.": "Mendukung kegiatan terkait perbankan selama magang serta memperoleh pengalaman dalam alur kerja profesional, pengelolaan data, dokumentasi, dan proses operasional.",
+      "Internship evidence / documentation": "Bukti / dokumentasi magang",
+      "Head of Finance Bureau": "Kepala Biro Keuangan",
+      "Managed organizational finance, budgeting, financial reporting, and coordination across programs and teams.": "Mengelola keuangan organisasi, penganggaran, pelaporan keuangan, serta koordinasi antarprogram dan tim.",
+      "Organization evidence": "Bukti / dokumentasi organisasi",
+      "Organizational Experience": "Pengalaman Organisasi",
+      "Participated in organizational activities and contributed to collaborative team-based programs.": "Berpartisipasi dalam kegiatan organisasi dan berkontribusi dalam program yang dikerjakan secara kolaboratif dalam tim.",
+      "Media": "Media",
+      "Contributed to activities within a student media organization and worked collaboratively with the team.": "Berkontribusi dalam kegiatan organisasi media mahasiswa dan bekerja secara kolaboratif bersama tim.",
+      "Projects": "Proyek",
+      "Selected work": "Proyek Pilihan",
+      "Thesis visualization / workflow": "Visualisasi / alur kerja skripsi",
+      "Data Analysis · Thesis": "Analisis Data · Skripsi",
+      "Random Forest LST Prediction": "Prediksi LST dengan Random Forest",
+      "Predicting Land Surface Temperature in Surabaya using Random Forest with spatial, environmental, demographic, and climatic variables.": "Memprediksi Land Surface Temperature di Surabaya menggunakan Random Forest dengan variabel spasial, lingkungan, demografi, dan iklim.",
+      "View Research →": "Lihat Riset →",
+      "Financial analysis visualization": "Visualisasi analisis keuangan",
+      "Quantitative Finance": "Keuangan Kuantitatif",
+      "Financial Modelling & Risk Analysis": "Pemodelan Keuangan & Analisis Risiko",
+      "Quantitative research involving stock price data, financial modelling, option pricing, forecasting, and risk measurement.": "Riset kuantitatif yang melibatkan data harga saham, pemodelan keuangan, penentuan harga opsi, peramalan, dan pengukuran risiko.",
+      "Data analysis visualization": "Visualisasi analisis data",
+      "Data Analytics": "Analitik Data",
+      "Statistical Data Analysis": "Analisis Data Statistik",
+      "Applied statistical methods to investigate patterns, relationships, assumptions, and model performance across quantitative datasets.": "Menerapkan metode statistik untuk mengidentifikasi pola, hubungan, asumsi, dan kinerja model pada berbagai dataset kuantitatif.",
+      "View Project →": "Lihat Proyek →",
+      "Dashboard / visualization": "Dashboard / visualisasi",
+      "Visualization": "Visualisasi",
+      "Dashboard & Data Visualization": "Dashboard & Visualisasi Data",
+      "Data presentation and visualization using spreadsheet and dashboard tools to communicate information clearly and support interpretation.": "Menyajikan dan memvisualisasikan data menggunakan spreadsheet dan tools dashboard untuk menyampaikan informasi secara jelas dan mendukung interpretasi.",
+      "Research": "Riset",
+      "Research & Publications": "Riset & Publikasi",
+      "Undergraduate Thesis · Not Yet Published": "Skripsi · Belum Dipublikasikan",
+      "A Random Forest-based study for predicting Land Surface Temperature in Surabaya using environmental, spatial, demographic, and climatic variables.": "Penelitian berbasis Random Forest untuk memprediksi Land Surface Temperature di Surabaya menggunakan variabel lingkungan, spasial, demografi, dan iklim.",
+      "Grid size": "Ukuran grid",
+      "View Code": "Lihat Kode",
+      "AUGUST 2024 · IJGOR": "AGUSTUS 2024 · IJGOR",
+      "Research on put and call option pricing for BCA stock using the Black-Scholes model with a financial and risk-management perspective.": "Penelitian mengenai penentuan harga opsi put dan call saham BCA menggunakan model Black-Scholes dari perspektif keuangan dan manajemen risiko.",
+      "Read Paper →": "Baca Paper →",
+      "NOVEMBER 2025 · IJGOR": "NOVEMBER 2025 · IJGOR",
+      "Research applying Geometric Brownian Motion to model stock-price movements and Value at Risk using Monte Carlo simulation.": "Penelitian yang menerapkan Geometric Brownian Motion untuk memodelkan pergerakan harga saham dan Value at Risk menggunakan simulasi Monte Carlo.",
+      "Certifications": "Sertifikasi",
+      "Courses & Credentials": "Kursus & Kredensial",
+      "Selected certifications and learning credentials relevant to data, analytics, business, and professional development.": "Sertifikasi dan kredensial pembelajaran pilihan yang relevan dengan data, analitik, bisnis, dan pengembangan profesional.",
+      "Certification Issuer": "Penerbit Sertifikasi",
+      "Certification Name": "Nama Sertifikasi",
+      "Short description of the certification or course.": "Deskripsi singkat sertifikasi atau kursus.",
+      "View Credential →": "Lihat Kredensial →",
+      "Contact": "Kontak",
+      "Let's connect.": "Mari terhubung.",
+      "Interested in data analytics, business analytics, finance, and quantitative problem solving.": "Tertarik pada analitik data, analitik bisnis, keuangan, dan pemecahan masalah kuantitatif.",
+      "Email Me": "Kirim Email",
+      "WhatsApp": "WhatsApp",
+      "Mathematics · Data · Finance": "Matematika · Data · Keuangan",
+      "Leadership": "Kepemimpinan",
+      "Organization": "Organisasi",
+      "View Research": "Lihat Riset"
+    };
+
+    const originalTextNodes = [];
+
+    function collectTranslatableText() {
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        {
+          acceptNode(node) {
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (["SCRIPT", "STYLE"].includes(parent.tagName)) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            const text = node.nodeValue.trim();
+            return text ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+          }
+        }
+      );
+
+      let node;
+      while ((node = walker.nextNode())) {
+        originalTextNodes.push({
+          node,
+          original: node.nodeValue
+        });
+      }
+    }
+
+    function translatePage(language) {
+      originalTextNodes.forEach(item => {
+        const original = item.original;
+        const key = original.trim();
+
+        if (language === "id" && translations[key]) {
+          item.node.nodeValue = original.replace(key, translations[key]);
+        } else {
+          item.node.nodeValue = original;
+        }
+      });
+
+      document.documentElement.lang = language;
+      document.title =
+        language === "id"
+          ? "Natasya Pradini Putri | Portofolio Data & Analitik"
+          : "Natasya Pradini Putri | Data & Analytics Portfolio";
+    }
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === "en" ? "id" : "en";
+      translatePage(currentLanguage);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      collectTranslatableText();
+    });
+
+  </script>
+
+</body>
+</html>
